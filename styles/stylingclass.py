@@ -1,10 +1,10 @@
 # classes and functions for styling
 
 class Color:
-    def __init__(self, red, green, blue):
-        self.r = red
-        self.g = green
-        self.b = blue
+    def __init__(self, rgb: tuple):
+        self.r = rgb[0]
+        self.g = rgb[1]
+        self.b = rgb[2]
 
     def toRGB(self):
         string = f"rgb({self.r}, {self.g}, {self.b})"

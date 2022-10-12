@@ -1,36 +1,23 @@
 # This Python file uses the following encoding: utf-8
 
-from stylingclass import Color
-
-
-# default dark blue
-ACCENT = Color(187, 134, 252)
-BACKGROUND = Color(31, 31, 31)
-FOREGROUND = Color(3, 218, 197)
-BRIGHTCOLOR = Color(255, 255, 255)
-BUTTONPADDING = 8
+TABBUTTONPADDING = 8
 CLEARBUTTONPADDING = 12
 
-# default dark red
-#ACCENT = Color(207, 102, 121)
-#BACKGROUND = Color(31, 31, 31)
-#FOREGROUND = Color(3, 218, 197)
-#BRIGHTCOLOR = Color(255, 255, 255)
-#BUTTONPADDING = 8
-#CLEARBUTTONPADDING = 12
+defaultdark = {
+    "accent": (187, 134, 252),
+    "background": (31, 31, 31),
+    "foreground": (3, 218, 197),
+    "brighttext": (255, 255, 255),
+}
 
-# default light blue
-#ACCENT = Color(55, 0, 179)
-#FOREGROUND = Color(31, 31, 31)
-#BACKGROUND = Color(3, 218, 197)
-#BRIGHTCOLOR = Color(0, 0, 0)
-#BUTTONPADDING = 8
-#CLEARBUTTONPADDING = 12
+defaultlight = {
+    "accent": (55, 0, 179),
+    "background": (31, 31, 31),
+    "foreground": (3, 218, 197),
+    "brighttext": (0, 0, 0),
+}
 
-# default light red
-#ACCENT = Color(255, 2, 102)
-#FOREGROUND = Color(31, 31, 31)
-#BACKGROUND = Color(3, 218, 197)
-#BRIGHTCOLOR = Color(0, 0, 0)
-#BUTTONPADDING = 8
-#CLEARBUTTONPADDING = 12
+colorschemes = {
+    "defaultdark": defaultdark,
+    "defaultlight": defaultlight,
+}

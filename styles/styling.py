@@ -1,12 +1,9 @@
 # This Python file uses the following encoding: utf-8
-# file executed like styling.py <FONTSIZE> <file dir>
+# file executed like styling.py FONTSIZE filedir colorscheme
 
 import sys
 from colorschemes import *
 from stylingclass import *
-
-
-FONTSIZE = int(sys.argv[1])
 
 
 def writeQSS(sheet):
@@ -19,7 +16,7 @@ def writeQSS(sheet):
 
     styles = {
         "border": "2px solid " + ACCENT.toRGB(),
-        "border-radius": (FONTSIZE+BUTTONPADDING*2) / 2,
+        "border-radius": (FONTSIZE+TABBUTTONPADDING*2) / 2,
     }
     addBlock("QWidget#TabBar", styles, sheet)
 
@@ -29,14 +26,14 @@ def writeQSS(sheet):
     addBlock("QPushButton#TabButton:hover", styles, sheet)
     styles = {
         "background-color": ACCENT.toRGBA(0.8),
-        "color": BRIGHTCOLOR.toRGB(),
+        "color": BRIGHTTEXT.toRGB(),
     }
     addBlock("QPushButton#TabButton:focused", styles, sheet)
     addBlock("QPushButton#TabButton:pressed", styles, sheet)
     styles = {
         "background-color": "transparent",
         "border": "none",
-        "border-radius": (FONTSIZE+BUTTONPADDING) / 2,
+        "border-radius": (FONTSIZE+TABBUTTONPADDING) / 2,
     }
     addBlock("QPushButton#TabButton", styles, sheet)
 
@@ -63,7 +60,7 @@ def writeQSS(sheet):
 
 
 def main():
-    sheet = open(f"{sys.argv[2]}/stylesheet.qss", "w+")
+    sheet = open(filedir+"/stylesheet.qss", "w+")
     sheet.write("")
     writeQSS(sheet)
     sheet.close()
@@ -71,4 +68,17 @@ def main():
 
 
 if __name__ == "__main__":
+    FONTSIZE = int(sys.argv[1])
+    filedir = sys.argv[2]
+    if len(sys.argv) > 3:
+        colorscheme = sys.argv[3]
+        if colorscheme not in colorschemes:
+            raise NameError("Colorscheme not found.")
+    else:
+        colorscheme = "defaultdark"
+    CS = colorschemes[colorscheme]
+    ACCENT = Color(CS["accent"])
+    BACKGROUND = Color(CS["background"])
+    FOREGROUND = Color(CS["foreground"])
+    BRIGHTTEXT = Color(CS["brighttext"])
     main()
