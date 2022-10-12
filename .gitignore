@@ -1,11 +1,8 @@
-# build folder
-build-MedManage-Re-Desktop-Debug
-
-# project file
-MedManage-Re.pro
-
 # dummy ui file
 form.ui
+
+# pycache
+__pycache__/
 
 
 # This file is used to ignore files which are generated

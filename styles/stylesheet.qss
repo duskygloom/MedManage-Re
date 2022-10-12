@@ -1,0 +1,11 @@
+* { background-color: rgb(31, 31, 31); color: rgb(3, 218, 197); outline: none; }
+QWidget#TabBar { border: 2px solid rgb(187, 134, 252); border-radius: 16.0; }
+QPushButton#TabButton:hover { background-color: rgba(187, 134, 252, 102.0); }
+QPushButton#TabButton:focused { background-color: rgba(187, 134, 252, 204.0); color: rgb(255, 255, 255); }
+QPushButton#TabButton:pressed { background-color: rgba(187, 134, 252, 204.0); color: rgb(255, 255, 255); }
+QPushButton#TabButton { background-color: transparent; border: none; border-radius: 12.0; }
+QLabel#NotifLabel { padding: 0 2 0 2; }
+QLabel#TimeLabel { padding: 0 2 0 2; }
+QPushButton#ClearButton:hover { background-color: rgba(187, 134, 252, 204.0); }
+QPushButton#ClearButton:pressed { background-color: rgba(187, 134, 252, 229.5); }
+QPushButton#ClearButton { background-color: rgba(187, 134, 252, 153.0); border-radius: 7.0; border-style: none; }

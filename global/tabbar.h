@@ -1,6 +1,6 @@
 #pragma once
 
-#include "tabbutton.h"
+#include "global/tabbutton.h"
 
 #include <QList>
 #include <QKeyEvent>
@@ -26,11 +26,18 @@ private:
     TabButton *settingsButton;
     QList<TabButton*> tabs;
 
+    void switchFocus(TabButton *button);
+
 protected:
     void setup();
     void customize();
+    void keyPressEvent(QKeyEvent *e) override;
+    void paintEvent(QPaintEvent *e) override;
 
 private slots:
-    void onKeyPress(QKeyEvent *e);
-    void paintEvent(QPaintEvent *e);
+    void onHomeClick();
+    void onSearchClick();
+    void onStatsClick();
+    void onGraphsClick();
+    void onSettingsClick();
 };

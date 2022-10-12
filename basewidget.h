@@ -1,6 +1,7 @@
 #pragma once
 
-#include "tabbar.h"
+#include "global/tabbar.h"
+#include "global/notifbar.h"
 
 #include <QWidget>
 #include <QShortcut>
@@ -17,6 +18,7 @@ private:
     QVBoxLayout *layout;
     TabBar *tabbar;
     QShortcut *quitshort;
+    NotifBar *notifbar;
 
 protected:
     void setup();
