@@ -11,7 +11,7 @@ extern int FONTSIZE;
 
 
 TabBar::TabBar(QWidget *parent)
-    : QWidget(parent)
+    : QFrame(parent)
 {
     setup();
     customize();
@@ -35,43 +35,36 @@ TabBar::TabBar(QWidget *parent)
     connect(settingsButton, &QPushButton::clicked, this, &TabBar::onSettingsClick);
 }
 
-void TabBar::switchFocus(TabButton *button)
+void TabBar::switchTab(TabButton *button)
 {
-    for (TabButton *i : tabs) {
-        if (i == button) {
-            i->hasFocus();
-            qDebug("focused");
-        }
-        else {
-            i->clearFocus();
-            qDebug("unfocused");
-        }
-    }
+    for (TabButton *i : tabs)
+        i->setChecked(false);
+    button->setChecked(true);
 }
 
 void TabBar::onHomeClick()
 {
-    switchFocus(homeButton);
+    switchTab(homeButton);
 }
 
 void TabBar::onSearchClick()
 {
-    switchFocus(searchButton);
+    switchTab(searchButton);
 }
 
 void TabBar::onStatsClick()
 {
-    switchFocus(statsButton);
+    switchTab(statsButton);
 }
 
 void TabBar::onGraphsClick()
 {
-    switchFocus(graphsButton);
+    switchTab(graphsButton);
 }
 
 void TabBar::onSettingsClick()
 {
-    switchFocus(settingsButton);
+    switchTab(settingsButton);
 }
 
 
@@ -89,27 +82,8 @@ void TabBar::setup()
 
 void TabBar::customize()
 {
+    setFocusPolicy(Qt::NoFocus);
     setFixedHeight(FONTSIZE+16);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    layout->setContentsMargins(4, 4, 4, 4);
-}
-
-void TabBar::keyPressEvent(QKeyEvent *e)
-{
-    if (e->key() == Qt::Key_Tab) {
-        int len = tabs.length();
-        for (int i=0; i<len; i+=1) {
-            if (tabs[i]->hasFocus()) {
-                if (i == len-1) i = -1;
-                tabs[i+1]->animateClick();
-                break;
-}   }   }   }
-
-void TabBar::paintEvent(QPaintEvent *e)
-{
-    Q_UNUSED(e);
-    QStyleOption option;
-    option.initFrom(this);
-    QPainter painter(this);
-    style()->drawPrimitive(QStyle::PE_Widget, &option, &painter, this);
+    layout->setContentsMargins(2, 2, 2, 2);
 }

@@ -4,14 +4,12 @@
 #include "global/notiflabel.h"
 #include "global/clearbutton.h"
 
-#include <QWidget>
-#include <QPainter>
-#include <QPaintEvent>
+#include <QFrame>
 #include <QMouseEvent>
 #include <QHBoxLayout>
 
 
-class NotifBar : public QWidget
+class NotifBar : public QFrame
 {
 public:
     explicit NotifBar(QWidget *parent = nullptr);
@@ -27,6 +25,5 @@ private:
 protected:
     void setup();
     void customize();
-    void paintEvent(QPaintEvent *e) override;
     void mouseDoubleClickEvent(QMouseEvent *e) override;
 };

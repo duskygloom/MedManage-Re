@@ -11,9 +11,9 @@ defaultdark = {
 }
 
 defaultlight = {
-    "accent": (55, 0, 179),
-    "background": (31, 31, 31),
-    "foreground": (3, 218, 197),
+    "accent": (76, 34, 175),
+    "background": (3, 218, 197),
+    "foreground": (31, 31, 31),
     "brighttext": (0, 0, 0),
 }
 

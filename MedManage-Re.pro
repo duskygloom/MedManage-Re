@@ -41,4 +41,4 @@ DISTFILES += styles/styling.py \
              styles/colorschemes.py \
              styles/stylingclass.py
 
-RESOURCES += assets.qrc
+RESOURCES +=

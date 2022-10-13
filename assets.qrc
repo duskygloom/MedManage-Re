@@ -1,1 +1,5 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/icons">
+        <file>clear_all.svg</file>
+    </qresource>
+</RCC>

@@ -23,4 +23,5 @@ private:
 protected:
     void setup();
     void customize();
+    void keyPressEvent(QKeyEvent *e) override;
 };

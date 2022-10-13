@@ -1,12 +1,13 @@
 #pragma once
 
+#include <QFrame>
 #include <QPushButton>
 
 
 class TabButton : public QPushButton
 {
 public:
-    TabButton(QWidget *parent, const QString &text);
+    TabButton(QFrame *parent, const QString &text);
 protected:
     void setup();
     void customize();

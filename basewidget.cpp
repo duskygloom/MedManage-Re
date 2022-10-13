@@ -10,15 +10,16 @@ BaseWidget::BaseWidget(QWidget *parent)
 {
     setup();
     customize();
-
     // layout
     layout->addWidget(tabbar);
     auto spacer = new QSpacerItem(1, 1, QSizePolicy::Fixed, QSizePolicy::Expanding);
     layout->addSpacerItem(spacer);
     layout->addWidget(notifbar);
-
     // connect
     connect(quitshort, &QShortcut::activated, qApp, &QApplication::quit);
+    // startup
+    tabbar->tabs[0]->animateClick();
+    notifbar->notify("MedManage started.");
 }
 
 
@@ -32,4 +33,21 @@ void BaseWidget::setup()
     notifbar = new NotifBar(this);
 }
 
-void BaseWidget::customize() {}
+void BaseWidget::customize() {
+    focusNextPrevChild(false);
+}
+
+void BaseWidget::keyPressEvent(QKeyEvent *e)
+{
+    QList<TabButton*> tabs(tabbar->tabs);
+    if (e->key() == Qt::Key_Tab) {
+        int len = tabs.length();
+        for (int i=0; i<len; i+=1) {
+            if (tabs[i]->isChecked()) {
+                if (i == len-1) i = -1;
+                tabs[i+1]->animateClick();
+                break;
+            }
+        }
+    }
+}

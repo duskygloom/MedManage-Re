@@ -5,10 +5,9 @@
 extern int FONTSIZE;
 
 
-TimeLabel::TimeLabel(QWidget *parent)
+TimeLabel::TimeLabel(QFrame *parent)
     : QLabel(parent)
 {
-    setup();
     customize();
 }
 
@@ -19,13 +18,10 @@ void TimeLabel::showTime()
     setText(timetext);
 }
 
-void TimeLabel::setup()
-{
-    setObjectName("TimeLabel");
-}
 
 void TimeLabel::customize()
 {
+    setObjectName("TimeLabel");
     setFixedSize(FONTSIZE*6, FONTSIZE+8);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 }

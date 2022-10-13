@@ -3,21 +3,16 @@
 extern int FONTSIZE;
 
 
-NotifLabel::NotifLabel(QWidget *parent)
+NotifLabel::NotifLabel(QFrame *parent)
     : QLabel(parent)
 {
-    setup();
     customize();
 }
 
 
-void NotifLabel::setup()
-{
-    setObjectName("NotifLabel");
-}
-
 void NotifLabel::customize()
 {
+    setObjectName("NotifLabel");
     setFixedHeight(FONTSIZE+8);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }

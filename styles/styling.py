@@ -6,6 +6,8 @@ from colorschemes import *
 from stylingclass import *
 
 
+colorscheme = "defaultdark"
+
 def writeQSS(sheet):
     styles = {
         "background-color": BACKGROUND.toRGB(),
@@ -21,6 +23,12 @@ def writeQSS(sheet):
     addBlock("QWidget#TabBar", styles, sheet)
 
     styles = {
+        "background-color": "transparent",
+        "border": "none",
+        "border-radius": (FONTSIZE+TABBUTTONPADDING) / 2,
+    }
+    addBlock("QPushButton#TabButton", styles, sheet)
+    styles = {
         "background-color": ACCENT.toRGBA(0.4),
     }
     addBlock("QPushButton#TabButton:hover", styles, sheet)
@@ -28,14 +36,12 @@ def writeQSS(sheet):
         "background-color": ACCENT.toRGBA(0.8),
         "color": BRIGHTTEXT.toRGB(),
     }
-    addBlock("QPushButton#TabButton:focused", styles, sheet)
-    addBlock("QPushButton#TabButton:pressed", styles, sheet)
+    addBlock("QPushButton#TabButton:checked", styles, sheet)
     styles = {
-        "background-color": "transparent",
-        "border": "none",
-        "border-radius": (FONTSIZE+TABBUTTONPADDING) / 2,
+        "background-color": ACCENT.toRGB(),
+        "color": BRIGHTTEXT.toRGB(),
     }
-    addBlock("QPushButton#TabButton", styles, sheet)
+    addBlock("QPushButton#TabButton:pressed", styles, sheet)
 
     styles = {
         "padding": "0 2 0 2",
@@ -55,12 +61,16 @@ def writeQSS(sheet):
         "background-color": ACCENT.toRGBA(0.6),
         "border-radius": (FONTSIZE+CLEARBUTTONPADDING) / 4,
         "border-style": "none",
+        "qproperty-icon": f"url({getIconURL('clear_all', BRIGHTTEXT)})",
     }
     addBlock("QPushButton#ClearButton", styles, sheet)
 
 
+def getIconURL(iconname, color):
+    return paintIcon(iconsdir+'/'+iconname+'.svg', color)
+
 def main():
-    sheet = open(filedir+"/stylesheet.qss", "w+")
+    sheet = open(sourcedir+"/styles/stylesheet.qss", "w+")
     sheet.write("")
     writeQSS(sheet)
     sheet.close()
@@ -69,13 +79,12 @@ def main():
 
 if __name__ == "__main__":
     FONTSIZE = int(sys.argv[1])
-    filedir = sys.argv[2]
+    sourcedir = sys.argv[2]
+    iconsdir = sourcedir + "/icons"
     if len(sys.argv) > 3:
         colorscheme = sys.argv[3]
-        if colorscheme not in colorschemes:
-            raise NameError("Colorscheme not found.")
-    else:
-        colorscheme = "defaultdark"
+    if colorscheme not in colorschemes:
+        raise NameError("Colorscheme not found.")
     CS = colorschemes[colorscheme]
     ACCENT = Color(CS["accent"])
     BACKGROUND = Color(CS["background"])

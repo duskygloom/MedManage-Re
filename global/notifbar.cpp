@@ -7,7 +7,7 @@ extern int FONTSIZE;
 
 
 NotifBar::NotifBar(QWidget *parent)
-    : QWidget(parent)
+    : QFrame(parent)
 {
     setup();
     customize();
@@ -17,8 +17,6 @@ NotifBar::NotifBar(QWidget *parent)
     layout->addWidget(clearbutton);
     // connect
     connect(clearbutton, &QPushButton::clicked, this, &NotifBar::clear);
-    // startup
-    notify("MedManage started.");
 }
 
 void NotifBar::notify(const QString &message)
@@ -45,17 +43,9 @@ void NotifBar::setup()
 void NotifBar::customize()
 {
     setFixedHeight(FONTSIZE+12);
+    setFocusPolicy(Qt::NoFocus);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     layout->setContentsMargins(0, 0, 0, 0);
-}
-
-void NotifBar::paintEvent(QPaintEvent *e)
-{
-    Q_UNUSED(e);
-    QStyleOption option;
-    option.initFrom(this);
-    QPainter painter(this);
-    style()->drawPrimitive(QStyle::PE_Widget, &option, &painter, this);
 }
 
 void NotifBar::mouseDoubleClickEvent(QMouseEvent *e)

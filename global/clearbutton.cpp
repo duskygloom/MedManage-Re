@@ -3,20 +3,18 @@
 extern int FONTSIZE;
 
 
-ClearButton::ClearButton(QWidget *parent)
+ClearButton::ClearButton(QFrame *parent)
     : QPushButton(parent)
 {
-    setup();
     customize();
 }
 
-void ClearButton::setup()
-{
-    setObjectName("ClearButton");
-}
 
 void ClearButton::customize()
 {
+    setObjectName("ClearButton");
+    setFocusPolicy(Qt::NoFocus);
     setFixedSize(FONTSIZE+12, FONTSIZE+12);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    setIconSize(QSize(FONTSIZE+8, FONTSIZE+8));
 }

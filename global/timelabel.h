@@ -6,9 +6,8 @@
 class TimeLabel : public QLabel
 {
 public:
-    TimeLabel(QWidget *parent);
+    TimeLabel(QFrame *parent);
     void showTime();
 protected:
-    void setup();
     void customize();
 };

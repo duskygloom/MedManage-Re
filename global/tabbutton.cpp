@@ -3,22 +3,19 @@
 extern int FONTSIZE;
 
 
-TabButton::TabButton(QWidget *parent, const QString &text)
+TabButton::TabButton(QFrame *parent, const QString &text)
     : QPushButton(parent)
 {
-    setup();
     customize();
     setText(text);
 }
 
 
-void TabButton::setup()
-{
-    setObjectName("TabButton");
-}
-
 void TabButton::customize()
 {
+    setObjectName("TabButton");
+    setCheckable(true);
+    setFocusPolicy(Qt::ClickFocus);
     setFixedSize(FONTSIZE*10, FONTSIZE+8);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 }

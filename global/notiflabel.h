@@ -6,8 +6,7 @@
 class NotifLabel : public QLabel
 {
 public:
-    NotifLabel(QWidget *parent);
+    NotifLabel(QFrame *parent);
 protected:
-    void setup();
     void customize();
 };

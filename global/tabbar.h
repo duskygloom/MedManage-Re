@@ -3,18 +3,20 @@
 #include "global/tabbutton.h"
 
 #include <QList>
+#include <QFrame>
 #include <QKeyEvent>
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QSpacerItem>
 
 
-class TabBar : public QWidget
+class TabBar : public QFrame
 {
     Q_OBJECT
 
 public:
     TabBar(QWidget *parent);
+    QList<TabButton*> tabs;
 
 private:
     QHBoxLayout *layout;
@@ -24,15 +26,13 @@ private:
     TabButton *graphsButton;
     QSpacerItem *spacer;
     TabButton *settingsButton;
-    QList<TabButton*> tabs;
 
-    void switchFocus(TabButton *button);
+public:
+    void switchTab(TabButton *button);
 
 protected:
     void setup();
     void customize();
-    void keyPressEvent(QKeyEvent *e) override;
-    void paintEvent(QPaintEvent *e) override;
 
 private slots:
     void onHomeClick();
