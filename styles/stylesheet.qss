@@ -9,3 +9,5 @@ QLabel#TimeLabel { padding: 0 2 0 2; }
 QPushButton#ClearButton:hover { background-color: rgba(187, 134, 252, 204.0); }
 QPushButton#ClearButton:pressed { background-color: rgba(187, 134, 252, 229.5); }
 QPushButton#ClearButton { background-color: rgba(187, 134, 252, 153.0); border-radius: 7.0; border-style: none; qproperty-icon: url(../MedManage-Re/icons/clear_allffffff.svg); }
+QLineEdit#EntryLine { background-color: rgba(187, 134, 252, 51.0); border-radius: 6.5; border-style: none; padding: 0 5; }
+QDateEdit#EntryDate { background-color: rgba(187, 134, 252, 51.0); border-radius: 6.5; border-style: none; padding: 0 5; }

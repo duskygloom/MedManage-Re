@@ -12,14 +12,14 @@ BaseWidget::BaseWidget(QWidget *parent)
     customize();
     // layout
     layout->addWidget(tabbar);
-    auto spacer = new QSpacerItem(1, 1, QSizePolicy::Fixed, QSizePolicy::Expanding);
-    layout->addSpacerItem(spacer);
+    layout->addWidget(homewidget);
     layout->addWidget(notifbar);
     // connect
     connect(quitshort, &QShortcut::activated, qApp, &QApplication::quit);
     // startup
-    tabbar->tabs[0]->animateClick();
     notifbar->notify("MedManage started.");
+    tabbar->homeButton->animateClick();
+    homewidget->transtab->buyTabButton->animateClick();
 }
 
 
@@ -30,7 +30,15 @@ void BaseWidget::setup()
     tabbar = new TabBar(this);
     QKeySequence keys(Qt::CTRL + Qt::Key_Q);
     quitshort = new QShortcut(keys, this);
+    homewidget = new HomeWidget(this);
     notifbar = new NotifBar(this);
+    toFocus.append(tabbar->homeButton);
+    toFocus.append(tabbar->searchButton);
+    toFocus.append(tabbar->statsButton);
+    toFocus.append(tabbar->graphsButton);
+    toFocus.append(tabbar->settingsButton);
+//    toFocus.append(homewidget->transtab->buyTabButton);
+//    toFocus.append(homewidget->transtab->sellTabButton);
 }
 
 void BaseWidget::customize() {
@@ -39,7 +47,9 @@ void BaseWidget::customize() {
 
 void BaseWidget::keyPressEvent(QKeyEvent *e)
 {
-    QList<TabButton*> tabs(tabbar->tabs);
+    QList<QPushButton*> tabs;
+    for (auto i : toFocus)
+        if (i->isVisible()) tabs.append(i);
     if (e->key() == Qt::Key_Tab) {
         int len = tabs.length();
         for (int i=0; i<len; i+=1) {

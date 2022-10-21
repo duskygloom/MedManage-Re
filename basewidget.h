@@ -2,6 +2,7 @@
 
 #include "global/tabbar.h"
 #include "global/notifbar.h"
+#include "home/homewidget.h"
 
 #include <QWidget>
 #include <QShortcut>
@@ -19,6 +20,8 @@ private:
     TabBar *tabbar;
     QShortcut *quitshort;
     NotifBar *notifbar;
+    HomeWidget *homewidget;
+    QList<QPushButton*> toFocus;
 
 protected:
     void setup();

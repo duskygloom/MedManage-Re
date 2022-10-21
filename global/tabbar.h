@@ -20,14 +20,16 @@ public:
 
 private:
     QHBoxLayout *layout;
+    QSpacerItem *spacer;
+
+public:
     TabButton *homeButton;
     TabButton *searchButton;
     TabButton *statsButton;
     TabButton *graphsButton;
-    QSpacerItem *spacer;
     TabButton *settingsButton;
 
-public:
+private:
     void switchTab(TabButton *button);
 
 protected:

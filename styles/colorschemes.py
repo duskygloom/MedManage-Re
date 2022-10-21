@@ -1,7 +1,8 @@
 # This Python file uses the following encoding: utf-8
 
-TABBUTTONPADDING = 8
-CLEARBUTTONPADDING = 12
+SMALLPAD = 8
+MEDIUMPAD = 10
+LARGEPAD = 12
 
 defaultdark = {
     "accent": (187, 134, 252),

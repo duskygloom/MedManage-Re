@@ -22,13 +22,23 @@ HEADERS   += basewidget.h \
              global/notifbar.h \
              global/tabbar.h \
              global/tabbutton.h \
-             global/timelabel.h
+             global/timelabel.h \
+             home/entrydate.h \
+             home/entryline.h \
+             home/homewidget.h \
+             home/transtab.h \
+             home/transtabbutton.h
 
 FORMS     += form.ui
 
 SOURCES   += basewidget.cpp \
              global/clearbutton.cpp \
              global/notiflabel.cpp \
+             home/entrydate.cpp \
+             home/entryline.cpp \
+             home/homewidget.cpp \
+             home/transtab.cpp \
+             home/transtabbutton.cpp \
              main.cpp \
              global/notifbar.cpp \
              global/tabbar.cpp \

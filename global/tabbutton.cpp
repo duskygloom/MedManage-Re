@@ -15,7 +15,7 @@ void TabButton::customize()
 {
     setObjectName("TabButton");
     setCheckable(true);
-    setFocusPolicy(Qt::ClickFocus);
+    setFocusPolicy(Qt::NoFocus);
     setFixedSize(FONTSIZE*10, FONTSIZE+8);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 }

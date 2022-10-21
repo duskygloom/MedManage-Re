@@ -18,14 +18,14 @@ def writeQSS(sheet):
 
     styles = {
         "border": "2px solid " + ACCENT.toRGB(),
-        "border-radius": (FONTSIZE+TABBUTTONPADDING*2) / 2,
+        "border-radius": (FONTSIZE+SMALLPAD*2) / 2,
     }
     addBlock("QWidget#TabBar", styles, sheet)
 
     styles = {
         "background-color": "transparent",
         "border": "none",
-        "border-radius": (FONTSIZE+TABBUTTONPADDING) / 2,
+        "border-radius": (FONTSIZE+SMALLPAD) / 2,
     }
     addBlock("QPushButton#TabButton", styles, sheet)
     styles = {
@@ -59,11 +59,27 @@ def writeQSS(sheet):
     addBlock("QPushButton#ClearButton:pressed", styles, sheet)
     styles = {
         "background-color": ACCENT.toRGBA(0.6),
-        "border-radius": (FONTSIZE+CLEARBUTTONPADDING) / 4,
+        "border-radius": (FONTSIZE+LARGEPAD) / 4,
         "border-style": "none",
         "qproperty-icon": f"url({getIconURL('clear_all', BRIGHTTEXT)})",
     }
     addBlock("QPushButton#ClearButton", styles, sheet)
+
+    styles = {
+        "background-color": ACCENT.toRGBA(0.2),
+        "border-radius": (FONTSIZE+MEDIUMPAD) / 4,
+        "border-style": "none",
+        "padding": "0 5",
+    }
+    addBlock("QLineEdit#EntryLine", styles, sheet)
+
+    styles = {
+        "background-color": ACCENT.toRGBA(0.2),
+        "border-radius": (FONTSIZE+MEDIUMPAD) / 4,
+        "border-style": "none",
+        "padding": "0 5",
+    }
+    addBlock("QDateEdit#EntryDate", styles, sheet)
 
 
 def getIconURL(iconname, color):
