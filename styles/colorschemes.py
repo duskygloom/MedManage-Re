@@ -3,6 +3,9 @@
 SMALLPAD = 8
 MEDIUMPAD = 10
 LARGEPAD = 12
+LARGERPAD = 16
+
+colorscheme = "defaultlight"
 
 defaultdark = {
     "accent": (187, 134, 252),

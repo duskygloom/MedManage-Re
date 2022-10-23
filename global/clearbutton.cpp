@@ -16,5 +16,5 @@ void ClearButton::customize()
     setFocusPolicy(Qt::NoFocus);
     setFixedSize(FONTSIZE+12, FONTSIZE+12);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    setIconSize(QSize(FONTSIZE+8, FONTSIZE+8));
+    setIconSize(QSize(FONTSIZE+6, FONTSIZE+6));
 }

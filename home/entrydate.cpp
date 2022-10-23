@@ -44,6 +44,6 @@ void EntryDate::customize()
     dateedit->setDate(QDate::currentDate());
     focusNextPrevChild(false);
     hide();
-    label->setFixedSize(FONTSIZE*16, FONTSIZE+10);
-    dateedit->setFixedHeight(FONTSIZE+10);
+    label->setFixedSize(FONTSIZE*16, FONTSIZE+16);
+    dateedit->setFixedHeight(FONTSIZE+16);
 }

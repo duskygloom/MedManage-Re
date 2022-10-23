@@ -1,13 +1,23 @@
-* { background-color: rgb(31, 31, 31); color: rgb(3, 218, 197); outline: none; }
-QWidget#TabBar { border: 2px solid rgb(187, 134, 252); border-radius: 16.0; }
+* { background-color: rgb(3, 218, 197); color: rgb(31, 31, 31); outline: none; }
+QWidget#TabBar { border: 2px solid rgb(76, 34, 175); border-radius: 16.0; }
 QPushButton#TabButton { background-color: transparent; border: none; border-radius: 12.0; }
-QPushButton#TabButton:hover { background-color: rgba(187, 134, 252, 102.0); }
-QPushButton#TabButton:checked { background-color: rgba(187, 134, 252, 204.0); color: rgb(255, 255, 255); }
-QPushButton#TabButton:pressed { background-color: rgb(187, 134, 252); color: rgb(255, 255, 255); }
-QLabel#NotifLabel { padding: 0 2 0 2; }
-QLabel#TimeLabel { padding: 0 2 0 2; }
-QPushButton#ClearButton:hover { background-color: rgba(187, 134, 252, 204.0); }
-QPushButton#ClearButton:pressed { background-color: rgba(187, 134, 252, 229.5); }
-QPushButton#ClearButton { background-color: rgba(187, 134, 252, 153.0); border-radius: 7.0; border-style: none; qproperty-icon: url(../MedManage-Re/icons/clear_allffffff.svg); }
-QLineEdit#EntryLine { background-color: rgba(187, 134, 252, 51.0); border-radius: 6.5; border-style: none; padding: 0 5; }
-QDateEdit#EntryDate { background-color: rgba(187, 134, 252, 51.0); border-radius: 6.5; border-style: none; padding: 0 5; }
+QPushButton#TabButton:hover { background-color: rgba(76, 34, 175, 102.0); }
+QPushButton#TabButton:checked { background-color: rgba(76, 34, 175, 204.0); color: rgb(0, 0, 0); }
+QPushButton#TabButton:pressed { background-color: rgb(76, 34, 175); color: rgb(0, 0, 0); }
+QLabel#NotifLabel { padding: 0 2; }
+QLabel#TimeLabel { padding: 0 2; }
+QPushButton#ClearButton:hover { background-color: rgba(76, 34, 175, 229.5); }
+QPushButton#ClearButton:pressed { background-color: rgb(76, 34, 175); }
+QPushButton#ClearButton { background-color: rgba(76, 34, 175, 204.0); border-radius: 7.0; border-style: none; qproperty-icon: url(../MedManage-Re/icons/clear_all03dac5.svg); }
+QLineEdit#EntryLine { background-color: rgba(31, 31, 31, 25.5); border-radius: 8.0; border-style: none; padding: 2 5; }
+QLineEdit:focus#EntryLine { border: 1px solid rgb(76, 34, 175); }
+QDateEdit#EntryDate { background-color: rgba(31, 31, 31, 25.5); border-radius: 8.0; border-style: none; padding: 2 5; }
+QLineEdit:focus#EntryLine { border: 1px solid rgb(76, 34, 175); }
+QDateEdit::up-button#EntryDate { subcontrol-origin: content; subcontrol-position: top right; border-style: none; border-top-left-radius: 7; border-top-right-radius: 7; background: rgba(76, 34, 175, 204.0); height: 14.0; width: 14.0; }
+QDateEdit::up-button:hover#EntryDate { background: rgba(76, 34, 175, 229.5); }
+QDateEdit::up-button:pressed#EntryDate { background: rgb(76, 34, 175); }
+QDateEdit::down-button#EntryDate { subcontrol-origin: content; subcontrol-position: bottom right; border-style: none; border-bottom-left-radius: 7; border-bottom-right-radius: 7; background: rgba(76, 34, 175, 204.0); height: 14.0; width: 14.0; }
+QDateEdit::down-button:hover#EntryDate { background: rgba(76, 34, 175, 229.5); }
+QDateEdit::down-button:pressed#EntryDate { background: rgb(76, 34, 175); }
+QDateEdit::up-arrow#EntryDate { image: url(../MedManage-Re/icons/arrow_up03dac5.svg); width: 16.0; height: 16.0; }
+QDateEdit::down-arrow#EntryDate { image: url(../MedManage-Re/icons/arrow_down03dac5.svg); width: 16.0; height: 16.0; }

@@ -43,6 +43,6 @@ void EntryLine::customize()
     lineedit->setObjectName("EntryLine");
     lineedit->setFocusPolicy(Qt::ClickFocus);
     hide();
-    label->setFixedSize(FONTSIZE*16, FONTSIZE+10);
-    lineedit->setFixedHeight(FONTSIZE+10);
+    label->setFixedSize(FONTSIZE*16, FONTSIZE+16);
+    lineedit->setFixedHeight(FONTSIZE+16);
 }

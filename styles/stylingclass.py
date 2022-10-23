@@ -45,7 +45,10 @@ def paintIcon(svgpath, colorobj):
         with open(svgpath, "r") as rfile:
             with open(fpath, "w") as wfile:
                 lines = rfile.readlines()
-                lines[1] = f'"fill: {hexeq}"\n'
+                if lines[1][0] == '"':
+                    lines[1] = f'"fill: {hexeq}"\n'
+                else:
+                    lines[1] = f'fill = "{hexeq}"\n'
                 wfile.writelines(lines)
                 wfile.flush()
     return fpath

@@ -6,8 +6,6 @@ from colorschemes import *
 from stylingclass import *
 
 
-colorscheme = "defaultdark"
-
 def writeQSS(sheet):
     styles = {
         "background-color": BACKGROUND.toRGB(),
@@ -28,58 +26,115 @@ def writeQSS(sheet):
         "border-radius": (FONTSIZE+SMALLPAD) / 2,
     }
     addBlock("QPushButton#TabButton", styles, sheet)
-    styles = {
-        "background-color": ACCENT.toRGBA(0.4),
-    }
+
+    styles = { "background-color": ACCENT.toRGBA(0.4) }
     addBlock("QPushButton#TabButton:hover", styles, sheet)
+
     styles = {
         "background-color": ACCENT.toRGBA(0.8),
         "color": BRIGHTTEXT.toRGB(),
     }
     addBlock("QPushButton#TabButton:checked", styles, sheet)
+
     styles = {
         "background-color": ACCENT.toRGB(),
         "color": BRIGHTTEXT.toRGB(),
     }
     addBlock("QPushButton#TabButton:pressed", styles, sheet)
 
-    styles = {
-        "padding": "0 2 0 2",
-    }
+    styles = { "padding": "0 2" }
     addBlock("QLabel#NotifLabel", styles, sheet)
     addBlock("QLabel#TimeLabel", styles, sheet)
 
+    styles = { "background-color": ACCENT.toRGBA(0.9) }
+    addBlock("QPushButton#ClearButton:hover", styles, sheet)
+
+    styles = { "background-color": ACCENT.toRGB() }
+    addBlock("QPushButton#ClearButton:pressed", styles, sheet)
+
     styles = {
         "background-color": ACCENT.toRGBA(0.8),
-    }
-    addBlock("QPushButton#ClearButton:hover", styles, sheet)
-    styles = {
-        "background-color": ACCENT.toRGBA(0.9),
-    }
-    addBlock("QPushButton#ClearButton:pressed", styles, sheet)
-    styles = {
-        "background-color": ACCENT.toRGBA(0.6),
         "border-radius": (FONTSIZE+LARGEPAD) / 4,
         "border-style": "none",
-        "qproperty-icon": f"url({getIconURL('clear_all', BRIGHTTEXT)})",
+        "qproperty-icon": f"url({getIconURL('clear_all', BACKGROUND)})",
     }
     addBlock("QPushButton#ClearButton", styles, sheet)
 
     styles = {
-        "background-color": ACCENT.toRGBA(0.2),
-        "border-radius": (FONTSIZE+MEDIUMPAD) / 4,
+        "background-color": FOREGROUND.toRGBA(0.1),
+        "border-radius": (FONTSIZE+LARGERPAD) / 4,
         "border-style": "none",
-        "padding": "0 5",
+        "padding": "2 5",
     }
     addBlock("QLineEdit#EntryLine", styles, sheet)
 
     styles = {
-        "background-color": ACCENT.toRGBA(0.2),
-        "border-radius": (FONTSIZE+MEDIUMPAD) / 4,
+        "border": f"1px solid {ACCENT.toRGB()}",
+    }
+    addBlock("QLineEdit:focus#EntryLine", styles, sheet)
+
+    styles = {
+        "background-color": FOREGROUND.toRGBA(0.1),
+        "border-radius": (FONTSIZE+LARGERPAD) / 4,
         "border-style": "none",
-        "padding": "0 5",
+        "padding": "2 5",
     }
     addBlock("QDateEdit#EntryDate", styles, sheet)
+
+    styles = {
+        "border": f"1px solid {ACCENT.toRGB()}",
+    }
+    addBlock("QLineEdit:focus#EntryLine", styles, sheet)
+
+    styles = {
+        "subcontrol-origin": "content",
+        "subcontrol-position": "top right",
+        "border-style": "none",
+        "border-top-left-radius": (FONTSIZE+LARGEPAD) // 4,
+        "border-top-right-radius": (FONTSIZE+LARGEPAD) // 4,
+        "background": ACCENT.toRGBA(0.8),
+        "height": (FONTSIZE+LARGEPAD) / 2,
+        "width": (FONTSIZE+LARGEPAD) / 2,
+    }
+    addBlock("QDateEdit::up-button#EntryDate", styles, sheet)
+
+    styles = { "background": ACCENT.toRGBA(0.9) }
+    addBlock("QDateEdit::up-button:hover#EntryDate", styles, sheet)
+
+    styles = { "background": ACCENT.toRGB() }
+    addBlock("QDateEdit::up-button:pressed#EntryDate", styles, sheet)
+
+    styles = {
+        "subcontrol-origin": "content",
+        "subcontrol-position": "bottom right",
+        "border-style": "none",
+        "border-bottom-left-radius": (FONTSIZE+LARGEPAD) // 4,
+        "border-bottom-right-radius": (FONTSIZE+LARGEPAD) // 4,
+        "background": ACCENT.toRGBA(0.8),
+        "height": (FONTSIZE+LARGEPAD) / 2,
+        "width": (FONTSIZE+LARGEPAD) / 2,
+    }
+    addBlock("QDateEdit::down-button#EntryDate", styles, sheet)
+
+    styles = { "background": ACCENT.toRGBA(0.9) }
+    addBlock("QDateEdit::down-button:hover#EntryDate", styles, sheet)
+
+    styles = { "background": ACCENT.toRGB() }
+    addBlock("QDateEdit::down-button:pressed#EntryDate", styles, sheet)
+
+    styles = {
+        "image": f"url({getIconURL('arrow_up', BACKGROUND)})",
+        "width": (FONTSIZE+LARGERPAD) / 2,
+        "height": (FONTSIZE+LARGERPAD) / 2,
+    }
+    addBlock("QDateEdit::up-arrow#EntryDate", styles, sheet)
+
+    styles = {
+        "image": f"url({getIconURL('arrow_down', BACKGROUND)})",
+        "width": (FONTSIZE+LARGERPAD) / 2,
+        "height": (FONTSIZE+LARGERPAD) / 2,
+    }
+    addBlock("QDateEdit::down-arrow#EntryDate", styles, sheet)
 
 
 def getIconURL(iconname, color):
